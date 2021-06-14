@@ -1,0 +1,74 @@
+.contact {
+  width: 80%;
+}
+
+.contact button {
+  background: blue;
+}
+
+.contact button:hover {
+  background: grey;
+}
+
+footer {
+  background: coral;
+}
+
+header,
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: red;
+  height: 100vh;
+  color: black;
+}
+
+header button,
+footer button {
+  background: blue;
+}
+
+header button:hover,
+footer button:hover {
+  background: red;
+}
+
+header button::after,
+footer button::after {
+  content: "hello";
+}
+
+ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: white;
+  width: 15%;
+}
+
+li {
+  width: 100%;
+  height: 4rem;
+}
+/*# sourceMappingURL=twitch-api.css.map */

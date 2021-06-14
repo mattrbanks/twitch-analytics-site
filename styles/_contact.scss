@@ -1,0 +1,10 @@
+.contact {
+  // @include flexCenter(row, blue);
+  width: 100% - 20%; //calculations
+  button {
+    background: $primaryBrn;
+    &:hover {
+      background: grey;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+//variables
+$primaryBrn: blue;
+$textColor: black;
+
+@import "./contact";
+
+//mixin function
+@mixin flexCenter($direction, $background) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  background: $background;
+}
+
+//extensions
+footer {
+  @extend header;
+  background: coral; //lower cascade override
+}
+
+header {
+  @include flexCenter(column, red);
+  height: 100vh;
+  color: $textColor;
+  button {
+    background: $primaryBrn;
+    &:hover {
+      background: red;
+    }
+    &::after {
+      content: "hello";
+    }
+  } //same as below commented out syntax
+}
+
+// header button {
+//   background: $primaryBrn;
+// }
+
+ul {
+  @include flexCenter(column, white);
+  // height: 100vh;
+  width: 15%;
+}
+
+li {
+  width: 100%;
+  height: 4rem;
+}
