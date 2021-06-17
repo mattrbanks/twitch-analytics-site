@@ -15,7 +15,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(morgan("dev"));
 
+http.listen(process.env.PORT || 3001, function () {
+  console.log("listening on *:3001");
+});
+
 let data = [];
+let dataGames = [];
 
 fetch("https://api.twitch.tv/helix/streams", {
   method: "GET",
@@ -30,10 +35,23 @@ fetch("https://api.twitch.tv/helix/streams", {
   // .then((res) => console.log(res))
   .then((res) => data.push(res));
 
-http.listen(process.env.PORT || 3001, function () {
-  console.log("listening on *:3001");
-});
-
 app.get("/data", function (req, res) {
   res.send(data);
+});
+
+fetch("https://api.twitch.tv/helix/games/top", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    "client-id": process.env.TWITCH_CLIENT_ID,
+    Authorization: process.env.TWITCH_ACCESS_TOKEN,
+  },
+  mode: "cors",
+})
+  .then((res) => res.json())
+  // .then((res) => console.log(res))
+  .then((res) => dataGames.push(res));
+
+app.get("/data-games", function (req, res) {
+  res.send(dataGames);
 });

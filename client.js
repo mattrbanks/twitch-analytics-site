@@ -4,13 +4,9 @@ fetch("http://localhost:3001/data", {
   mode: "cors",
 })
   .then((res) => res.json())
-  //   .then((res) => console.log(res))
   .then((res) => {
-    // let userLogin = ["1", "2", "3", "4", "5", "6"];
     let resCopy = res.slice();
     console.log(resCopy);
-
-    // let ul = document.createElement("ul");
 
     document.getElementById("container").innerHTML = resCopy[0].data
       .map((stream) => "<li>" + stream.user_login + "</li>")
@@ -22,5 +18,37 @@ fetch("http://localhost:3001/data", {
 
     document.getElementById("container3").innerHTML = resCopy[0].data
       .map((stream) => "<li>" + stream.viewer_count + "</li>")
+      .join("");
+  });
+
+fetch("http://localhost:3001/data-games", {
+  method: "GET",
+  headers: { "Content-Type": "application/json" },
+  mode: "cors",
+})
+  .then((res) => res.json())
+  .then((res) => {
+    let resCopy = res.slice();
+    console.log(resCopy);
+
+    let img = "<img />";
+
+    document.getElementById("container4").innerHTML = resCopy[0].data
+      .map(
+        (stream) =>
+          "<li>" +
+          `<img src=${stream.box_art_url
+            .replace("{width}", 60)
+            .replace("{height}", 60)} />` +
+          "</li>"
+      )
+      .join("");
+
+    document.getElementById("container5").innerHTML = resCopy[0].data
+      .map((stream) => "<li>" + stream.name + "</li>")
+      .join("");
+
+    document.getElementById("container6").innerHTML = resCopy[0].data
+      .map((stream) => "<li>" + stream.id + "</li>")
       .join("");
   });

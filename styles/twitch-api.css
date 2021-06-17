@@ -14,38 +14,34 @@ footer {
   background: coral;
 }
 
-header,
-footer {
+header, footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background: red;
   height: 100vh;
   color: black;
 }
 
-header button,
-footer button {
+header button, footer button {
   background: blue;
 }
 
-header button:hover,
-footer button:hover {
+header button:hover, footer button:hover {
   background: red;
 }
 
-header button::after,
-footer button::after {
+header button::after, footer button::after {
   content: "hello";
 }
 
@@ -54,21 +50,41 @@ ul {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background: white;
-  width: 15%;
+  padding: 0;
 }
 
 li {
   width: 100%;
-  height: 4rem;
+  height: 6rem;
+}
+
+p {
+  font-size: 1.25rem;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+h2 {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#pop-games {
+  border-left: 1px solid black;
+}
+
+img {
+  border: 1px solid black;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=twitch-api.css.map */
