@@ -9,17 +9,20 @@
     <link rel="stylesheet" type="text/css" href="./styles/twitch-api.css"></link>
   </head>
   <body>
-    <div id="btn-container">
+    <div id="top-container">
+      <h1>Twitch Analytics</h1>
+    <div>
       <div>
         <button id="refresh-btn">Refresh</button>
       </div>
     </div>
-    <div style="display: flex; justify-content: center; background: grey;">
-      <div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <div id="active-streams" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
         <h2>20 most active streams right now</h2>
         <div style="display: flex; justify-content: center;">
           <div>
-            <p>live stream snapshot: hover for large</p>
+            <p>live stream snapshot</p>
             <ul id="thumbnail-url" style="list-style: none;"></ul>
           </div>
           <div style="margin: 0 3rem;">
@@ -44,11 +47,11 @@
             <p>thumbnail</p>
             <ul id="container4" style="list-style: none;"></ul>
           </div>
-          <div style="margin: 0 3rem 0 5rem;">
+          <div style="margin: 0 3rem;">
             <p>game</p>
             <ul id="container5" style="list-style: none;"></ul>
           </div>
-          <div style="margin: 0 3rem 0 5rem;">
+          <div style="margin: 0 3rem;">
             <p>id</p>
             <ul id="container6" style="list-style: none;"></ul>
           </div>
