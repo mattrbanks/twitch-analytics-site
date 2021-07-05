@@ -22,35 +22,49 @@ http.listen(process.env.PORT || 3001, function () {
 let data = [];
 let dataGames = [];
 
-fetch("https://api.twitch.tv/helix/streams", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    "client-id": process.env.TWITCH_CLIENT_ID,
-    Authorization: process.env.TWITCH_ACCESS_TOKEN,
-  },
-  mode: "cors",
-})
-  .then((res) => res.json())
-  // .then((res) => console.log(res))
-  .then((res) => data.push(res));
+async function fetchStreams() {
+  await fetch("https://api.twitch.tv/helix/streams", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "client-id": process.env.TWITCH_CLIENT_ID,
+      Authorization: process.env.TWITCH_ACCESS_TOKEN,
+    },
+    mode: "cors",
+  })
+    .then((res) => res.json())
+    // .then((res) => console.log(res))
+    .then((res) => data.push(res))
+    .catch(function (error) {
+      console.log.warn(error);
+    });
+}
+
+fetchStreams();
 
 app.get("/data", function (req, res) {
   res.send(data);
 });
 
-fetch("https://api.twitch.tv/helix/games/top", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    "client-id": process.env.TWITCH_CLIENT_ID,
-    Authorization: process.env.TWITCH_ACCESS_TOKEN,
-  },
-  mode: "cors",
-})
-  .then((res) => res.json())
-  // .then((res) => console.log(res))
-  .then((res) => dataGames.push(res));
+async function fetchGamesTop() {
+  await fetch("https://api.twitch.tv/helix/games/top", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "client-id": process.env.TWITCH_CLIENT_ID,
+      Authorization: process.env.TWITCH_ACCESS_TOKEN,
+    },
+    mode: "cors",
+  })
+    .then((res) => res.json())
+    // .then((res) => console.log(res))
+    .then((res) => dataGames.push(res))
+    .catch(function (error) {
+      console.log.warn(error);
+    });
+}
+
+fetchGamesTop();
 
 app.get("/data-games", function (req, res) {
   res.send(dataGames);

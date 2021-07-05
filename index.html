@@ -9,10 +9,19 @@
     <link rel="stylesheet" type="text/css" href="./styles/twitch-api.css"></link>
   </head>
   <body>
-    <div style="display: flex; justify-content: center;">
+    <div id="btn-container">
+      <div>
+        <button id="refresh-btn">Refresh</button>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; background: grey;">
       <div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
         <h2>20 most active streams right now</h2>
         <div style="display: flex; justify-content: center;">
+          <div>
+            <p>live stream snapshot: hover for large</p>
+            <ul id="thumbnail-url" style="list-style: none;"></ul>
+          </div>
           <div style="margin: 0 3rem;">
             <p>streamer</p>
             <ul id="container" style="list-style: none;"></ul>

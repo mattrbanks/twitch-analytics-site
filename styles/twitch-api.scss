@@ -46,8 +46,9 @@ ul {
 }
 
 li {
+  // width: 8rem;
   width: 100%;
-  height: 6rem;
+  height: 8rem;
 }
 
 p {
@@ -62,10 +63,63 @@ h2 {
 }
 
 #pop-games {
-  border-left: 1px solid black;
+  border-left: 1px solid $textColor;
 }
 
 img {
-  border: 1px solid black;
+  border: 1px solid $textColor;
   border-radius: 10px;
+}
+
+#refresh-btn {
+  @include flexCenter(row, $primaryBrn);
+  color: white;
+}
+
+#btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+a:link,
+a:visited {
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
+}
+
+#thumbnail-url li img {
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width: 20%;
+  &:hover {
+    z-index: 10;
+    width: 100%;
+  }
+}
+
+#thumbnail-url li {
+  position: relative;
+  width: 20rem;
+}
+
+#container4 li img {
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width: 20%;
+  &:hover {
+    z-index: 10;
+    width: 100%;
+  }
+}
+
+#container4 li {
+  position: relative;
+  width: 20rem;
 }
