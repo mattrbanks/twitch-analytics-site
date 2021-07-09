@@ -134,6 +134,21 @@ img {
           flex-direction: column;
 }
 
+.main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 1887px) {
+  .main-content {
+    display: block;
+  }
+}
+
 a:link,
 a:visited {
   color: blue;
