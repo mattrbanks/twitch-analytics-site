@@ -4,6 +4,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const fetch = require("node-fetch");
 const http = require("http").createServer(app);
+const mongoose = require("mongoose");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -14,6 +15,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(morgan("dev"));
+
+//mongoDB stuff
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+});
+
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
+});
 
 http.listen(process.env.PORT || 3001, function () {
   console.log("listening on *:3001");
